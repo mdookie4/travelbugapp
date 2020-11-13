@@ -12,13 +12,13 @@ const Amadeus = require('amadeus')
 // configure the PORT
 const PORT = parseInt(process.argv[2]) || parseInt(process.env.PORT) || 3000
 //API keys
-const OWM_API_KEY = process.env.OWM_API_KEY || "3eed99df4ef24c44eb247352b3f0ae2b"
+const OWM_API_KEY = process.env.OWM_API_KEY
 const OWM_URL = 'https://api.openweathermap.org/data/2.5/weather'
-const NEWS_API_KEY = process.env.NEWS_API_KEY || "9dd16da57f5042cbb27cc421862ac2dd"
-const AMADEUS_API_KEY = process.env.AMADEUS_API_KEY || "GrAMRDufJaLLY35JgPHQXOTuwv81AHas"
-const AMADEUS_API_SECRET = process.env.AMADEUS_API_SECRET || "TAquOVCUYtYReGtE"
-const GOOGLE_MAP_API_KEY = process.env.GOOGLE_MAP_API_KEY || "AIzaSyA2U3WCQmJKRoDbTuz78ztAsAJn5KPL7Lc"
-const GOOGLE_MAP_SECRET_KEY = process.env.GOOGLE_MAP_SECRET_KEY || "81_2ldWV-W3y5jgJjlmlvTYMpyk="
+const NEWS_API_KEY = process.env.NEWS_API_KEY
+const AMADEUS_API_KEY = process.env.AMADEUS_API_KEY
+const AMADEUS_API_SECRET = process.env.AMADEUS_API_SECRET
+const GOOGLE_MAP_API_KEY = process.env.GOOGLE_MAP_API_KEY
+const GOOGLE_MAP_SECRET_KEY = process.env.GOOGLE_MAP_SECRET_KEY
 //urls
 const NEWS_URL = 'https://newsapi.org/v2/top-headlines'
 //const GEODB_CITY_URL = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities'
