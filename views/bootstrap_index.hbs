@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+    <div class="container">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <div class="navbar-nav">
+                <a href="/" class="nav-item nav-link active">Home</a>
+                <a href="/comingsoon" class="nav-item nav-link">About</a>
+                <a href="/comingsoon" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid bg-info text-white" 
+style="background-image: url('{{coverImg}}'); background-repeat: no-repeat; background-size: auto auto; background-position: center; opacity: 1; min-height: 600px;">
+    <div class="container">
+        <h2 class="display-4">Where do you want to go today?</h2>
+        <form action="/search" method="get">
+            <div class="input-group input-group-md form-group">
+                <input type="text" class="form-control" placeholder="Name of Destination City" name="search-city">
+                <div class="input-group-append">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit">Enter</button>
+                    </span>
+                </div>
+            </div><br>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+    <div class="container">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <div class="navbar-nav">
+                <a href="/" class="nav-item nav-link active">Home</a>
+                <a href="/comingsoon" class="nav-item nav-link">About</a>
+                <a href="/comingsoon" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid bg-info text-white"
+style="background-image: url('{{coverImg}}'); background-repeat: no-repeat; background-size: auto auto; background-position: center; opacity: 1;">
+    <div class="container">
+        <h2 class="display-4">Where do you want to go today?</h2>
+        <form action="/search" method="get">
+            <div class="input-group input-group-md form-group">
+                <input type="text" class="form-control" placeholder="Name of Destination City" name="search-city">
+                <div class="input-group-append">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit">Enter</button>
+                    </span>
+                </div>
+            </div><br>
+        </form>
+    </div>
+</div>
+<div class="container">
+        <div class="row mr-4">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            {{#if hasResult}}
+            <div class="row border border-light rounded-bottom mr-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <img src="http://openweathermap.org/img/wn/{{weather.icon}}@2x.png">
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8" style="background-color: deepskyblue;">
+                    <p class="h6"><u>Current weather forecast</u></p>
+                    <p class="h4">{{weather_description}}</p>
+                    <p class="h4">{{weather_temp_min}}-{{weather_temp_max}}&#8451;</p>
+                </div>
+            </div>
+            {{/if}}
+            <div class="row mr-4">
+                <div class="h3 mt-1">News</div>
+            </div>
+            <div class="row mr-4">
+                <ul class="list-unstyled">
+                    {{#if hasNews}}
+                        {{#each news}}
+                        <li class="media my-1 pr-2">
+                            <div class="media-body">{{this.title}}</div>
+                        </li>
+                        {{/each}}
+                    {{else}}
+                        <li class="media my-1 pr-2">
+                            <div class="media-body">There are no news.</div>
+                        </li>
+                    {{/if}}
+                {{!-- </ul>
+                <p class="h3">News</p>
+                {{#if hasNews}}
+                    {{#each news}}
+                    <p style="font-family: 'Times New Roman', Times, serif;">
+                        <div class="row">{{this.title}}</div>
+                    </p>
+                    {{/each}}
+                {{else}}
+                    There are no news.
+                {{/if}} --}}
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Currency</h5>
+                        <p class="card-text text-center h4">
+                            {{#if hasCurrency}}
+                                1 SGD  = {{currencyXinfo}} {{currencyCode}}
+                            {{else}}
+                                There is no exchange rate.
+                            {{/if}}
+                        </p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {{!-- <div class="row">
+                <p class="h5 mt-1">Currency</p>
+            </div>
+            <div class="row">
+                <p>
+                    {{#if hasCurrency}}
+                        1 SGD  = {{currencyXinfo}} {{currencyCode}}
+                    {{else}}
+                        There is no exchange rate.
+                    {{/if}}
+                </p>
+            </div> --}}
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="row  border border-dark">
+                <div class="h3 mt-1">Points of Interest</div>
+            </div>
+            {{#if hasPOI}}
+                {{#each POI}}
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        {{this.name}}
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        Rank: {{this.rank}}
+                    </div>
+                </div>
+                {{/each}}
+            {{else}}
+                <div class="row">
+                    There are no points of interest.
+                </div>
+            {{/if}}
+            <div class="row  border border-dark">
+                <div class="h3 mt-1">Map of City</div>
+            </div>
+            <div class="row">
+                <img src="{{mapimg}}" alt="Static map of city">
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+</div>
